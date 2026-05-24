@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>굿모닝 리셋 | 잠 깨는 큐레이션</title>
+  <style>
+    :root {
+      --bg: #0f1222;
+      --card: #171a2e;
+      --muted: #8f95b2;
+      --text: #f2f4ff;
+      --accent: #7ea6ff;
+      --accent-2: #7ef0d2;
+      --border: #2a2f4a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Pretendard", "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(circle at top, #1a1f3b, var(--bg) 45%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      padding: 40px 0 80px;
+    }
+    header {
+      padding: 24px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #1b2142, #111428);
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 2.8vw, 2.4rem); }
+    .sub { color: var(--muted); margin: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #051019;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
+      padding: 4px 10px;
+    }
+    h2 { font-size: 1.05rem; margin: 2px 0; }
+    ul { margin: 0; padding-left: 18px; }
+    li + li { margin-top: 6px; }
+    a { color: #b8ccff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .tips {
+      margin-top: 24px;
+      background: #11162f;
+      border: 1px dashed #3a4472;
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .controls { margin: 18px 0; display: flex; gap: 10px; flex-wrap: wrap; }
+    button {
+      border: 0;
+      border-radius: 10px;
+      background: #2a3367;
+      color: white;
+      font-weight: 700;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+    button:hover { background: #33408a; }
+    .focus {
+      font-weight: 700;
+      color: var(--accent-2);
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>🌅 굿모닝 리셋: 잠 깨는 큐레이션</h1>
+      <p class="sub">아침에 눈뜨자마자 바로 실행할 수 있는 <strong>음악 · 팟캐스트 · 아티클 · 뉴스</strong> 모음입니다.</p>
+      <div class="controls">
+        <button id="shuffleBtn">오늘의 랜덤 추천 받기</button>
+      </div>
+      <p id="todayPick" class="focus">오늘의 픽: 버튼을 눌러 추천을 받아보세요.</p>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <span class="badge">MUSIC</span>
+        <h2>집중력 올리는 모닝 트랙</h2>
+        <ul>
+          <li><a href="https://open.spotify.com/playlist/37i9dQZF1DX4WYpdgoIcn6" target="_blank" rel="noreferrer">Spotify - Wake Up Happy</a></li>
+          <li><a href="https://music.youtube.com/playlist?list=RDCLAK5uy_mQhXvKVnqQ59vlWvP7EaP-RzYI9aJ6kEc" target="_blank" rel="noreferrer">YouTube Music - Morning Energy Mix</a></li>
+          <li><a href="https://www.youtube.com/watch?v=5qap5aO4i9A" target="_blank" rel="noreferrer">Lo-fi hip hop radio (가벼운 기상용)</a></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="badge">PODCAST</span>
+        <h2>짧게 듣는 모닝 팟캐스트</h2>
+        <ul>
+          <li><a href="https://www.nytimes.com/column/the-daily" target="_blank" rel="noreferrer">The Daily (NYT)</a></li>
+          <li><a href="https://www.npr.org/podcasts/510318/up-first" target="_blank" rel="noreferrer">Up First (NPR)</a></li>
+          <li><a href="https://open.spotify.com/show/6rLqA9fI9qn4bXf6fV6dNC" target="_blank" rel="noreferrer">TED Talks Daily</a></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="badge">ARTICLE</span>
+        <h2>아침 루틴/생산성 아티클</h2>
+        <ul>
+          <li><a href="https://jamesclear.com/morning-routine" target="_blank" rel="noreferrer">James Clear - Morning Routine</a></li>
+          <li><a href="https://zenhabits.net/start/" target="_blank" rel="noreferrer">Zen Habits - Start Small</a></li>
+          <li><a href="https://blog.trello.com/morning-routine" target="_blank" rel="noreferrer">Trello Blog - Productive Morning</a></li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <span class="badge">NEWS</span>
+        <h2>아침 뉴스 브리핑</h2>
+        <ul>
+          <li><a href="https://www.bbc.com/news" target="_blank" rel="noreferrer">BBC News</a></li>
+          <li><a href="https://www.reuters.com/world/" target="_blank" rel="noreferrer">Reuters World</a></li>
+          <li><a href="https://news.google.com/topstories" target="_blank" rel="noreferrer">Google News Top Stories</a></li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="tips">
+      <h2>⚡ 3분 기상 루틴</h2>
+      <ol>
+        <li><strong>30초</strong>: 물 한 잔 마시기.</li>
+        <li><strong>60초</strong>: 창문 열고 햇빛 보기.</li>
+        <li><strong>90초</strong>: 위 추천 음악 1곡 재생 + 가벼운 스트레칭.</li>
+      </ol>
+    </section>
+  </main>
+
+  <script>
+    const picks = [
+      "Wake Up Happy 재생하고 물 한 잔부터 시작!",
+      "Up First 10분 듣고 오늘 이슈 파악하기",
+      "James Clear 아티클 5분 읽고 할 일 1개 정하기",
+      "Reuters 헤드라인 3개만 보고 하루 시작하기",
+      "TED Talks Daily 한 편으로 두뇌 깨우기"
+    ];
+
+    document.getElementById('shuffleBtn').addEventListener('click', () => {
+      const pick = picks[Math.floor(Math.random() * picks.length)];
+      document.getElementById('todayPick').textContent = `오늘의 픽: ${pick}`;
+    });
+  </script>
+</body>
+</html>
